@@ -6,9 +6,8 @@ import ModalHeader from 'react-bootstrap/esm/ModalHeader';
 
 
 const Navigation = () => {
-
+    //funsion de modal 
     const [show, setshow] = useState()
-
     const handleClose=()=>setshow(false)
     const handleShow =()=>setshow(true)
 
@@ -17,7 +16,7 @@ const Navigation = () => {
         <>
             <Navbar bg='dark' variant='dark' fixed='top'>
                 <Container>
-                   <Navbar.Brand  href='#logo'text-bg='white'>MovieAPI</Navbar.Brand> 
+                   <Navbar.Brand  href='#logo'text-bg='white'>MarvelAPI</Navbar.Brand> 
                    <Navbar.Toggle aria-controls='basic-navbar-nav'/> 
                     <Navbar.Collapse id='basic-navbar-nav'>
                         <Nav className='me-auto'>
@@ -38,7 +37,15 @@ const Navigation = () => {
                 <ModalHeader closeButton>
                     <ModalTitle>Modal Title</ModalTitle>
                 </ModalHeader>
-                <ModalBody>EIRRIIFIJKVMXLVLXMVLMKLMGVLKMKLML</ModalBody>
+                <ModalBody>
+                    <Form>
+                        <Form.Group className='md-3' controlId='formBasicText'>
+                          <Form.Control type="text" placeholder="Name" />
+                          <Form.Control type="text" placeholder="LastName" />
+                          <Form.Control type="number" placeholder="Age" />
+                        </Form.Group>
+                    </Form>
+                </ModalBody>
                 <ModalFooter>
                     <Button variant='secondary' onClick={handleClose}>Close</Button>
                     <Button variant='success' > Enviar</Button>
