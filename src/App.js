@@ -18,16 +18,21 @@ import {useState,useEffect} from 'react';
 function App() {
 
   const [personajes,setPersonajes]= useState([])
+  const uri='https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=6fbf271c8c778fde84cb652dd69deb8c&hash=c18fea4db9880eac713763ed54916c8a'
+
+    const fetchPersonajes = (uri)=>{
+      axios.get(uri)
+      .then((res)=>{
+        setPersonajes(res.data.data.results)
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
+    }
+
 
     useEffect(()=>{
-      axios.get('https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=6fbf271c8c778fde84cb652dd69deb8c&hash=c18fea4db9880eac713763ed54916c8a')
-      .then((res)=>{
-        setPersonajes(res.data)
-        console.log(res.data)
-      })
-      .catch(error=>console.log(error))
-      
-      
+      fetchPersonajes(uri)
     },[])
 
 
